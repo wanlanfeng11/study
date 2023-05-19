@@ -8,12 +8,12 @@
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../parent</relativePath>
     </parent>
-    <artifactId>content</artifactId>
+    <artifactId>system</artifactId>
     <packaging>pom</packaging>
 
     <modules>
-        <module>content-api</module>
-        <module>content-model</module>
-        <module>content-service</module>
+        <module>system-api</module>
+        <module>system-service</module>
+        <module>system-model</module>
     </modules>
 </project>
