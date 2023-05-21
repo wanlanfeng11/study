@@ -7,6 +7,7 @@ import com.wansir.content.model.pojo.CourseCategory;
 import com.wansir.content.service.CourseCategoryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
@@ -21,6 +22,14 @@ import java.util.List;
 public class CourseCategoryMapperTest {
     @Autowired
     private CourseCategoryService courseCategoryService;
+
+    @Value("${swagger.title}")
+    String title;
+
+    @Test
+    void getValue(){
+        System.out.println(title);
+    }
 
     @Test
     void selectTreeNodesTest(){

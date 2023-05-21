@@ -1,24 +1,32 @@
-server:
-  servlet:
-    context-path: /system
-  port: 63110
-#微服务配置
 spring:
   application:
     name: system-api
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/system?serverTimezone=UTC&userUnicode=true&useSSL=false&
-    username: root
-    password: root
-# 日志文件配置路径
-logging:
-  config: classpath:log4j2-dev.xml
+  cloud:
+    nacos:
+      server-addr: 192.168.12.128:8848
+      discovery:
+        namespace: dev_study
+        group: study
+      config:
+        namespace: dev_study
+        group: study
+        file-extension: yaml
+        refresh-enabled: true
+        extension-configs:
+          #content-service模块的扩展配置（因为依赖于该模块的数据库配置）
+          - data-id: system-service-${spring.profiles.active}.yaml
+            group: study
+            refresh: true
+        shared-configs:
+          - data-id: swagger-${spring.profiles.active}.yaml
+            group: common
+            refresh: true
+          - data-id: logging-${spring.profiles.active}.yaml
+            group: common
+            refresh: true
+      username: nacos
+      password: nacos
+  profiles:
+    active: dev
 
-#swagger我能当配置
-swagger:
-  title: "学成在线字典系统"
-  description: "查询字典"
-  base-package: com.wansir.system
-  enabled: true
-  version: 1.0.0
+

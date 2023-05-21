@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -23,6 +24,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("teachplan")
+@Accessors(chain = true)
 public class Teachplan implements Serializable {
 
     private static final long serialVersionUID = 1L;

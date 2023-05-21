@@ -2,10 +2,7 @@ package com.wansir.content.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.wansir.base.model.PageParams;
-import com.wansir.content.model.dto.AddCourseDto;
-import com.wansir.content.model.dto.CourseBaseInfoDto;
-import com.wansir.content.model.dto.PageResult;
-import com.wansir.content.model.dto.QueryCourseParamsDto;
+import com.wansir.content.model.dto.*;
 import com.wansir.content.model.pojo.CourseBase;
 
 /**
@@ -33,8 +30,26 @@ public interface CourseBaseService extends IService<CourseBase> {
     CourseBaseInfoDto createCourseBase(Long companyId, AddCourseDto addCourseDto);
 
 
+    /**
+     * @description 根据id查询课程基本信息
+     * @param courseId  课程id
+     * @return com.wansir.content.model.dto.CourseBaseInfoDto
+     */
+    public CourseBaseInfoDto getCourseBaseInfo(Long courseId);
 
+    /**
+     * @description 修改课程信息
+     * @param companyId  机构id
+     * @param dto  课程信息
+     * @return com.wansir.content.model.dto.CourseBaseInfoDto
+     */
+    public CourseBaseInfoDto updateCourseBase(Long companyId, UpdateCourseDto dto);
 
-
+    /**
+     * 根据课程id删除课程
+     * @param courseId
+     * @return
+     */
+    void deleteCourse(Long courseId);
 }
 

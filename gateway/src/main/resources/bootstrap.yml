@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: 192.168.12.128:8848
+      discovery:
+        namespace: dev_study
+        group: study
+      config:
+        namespace: dev_study
+        group: study
+        file-extension: yaml
+        refresh-enabled: true
+        shared-configs:
+          - data-id: logging-${spring.profiles.active}.yaml
+            group: study
+            refresh: true
+      username: nacos
+      password: nacos
+
+  profiles:
+    active: dev

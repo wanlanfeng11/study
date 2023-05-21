@@ -1,13 +1,18 @@
 package com.wansir;
 
 
+import com.spring4all.swagger.EnableSwagger2Doc;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@EnableSwagger2
+@EnableSwagger2Doc
 public class ContentApplication {
+
+    @Value("swagger.title")
+    String s;
+
     public static void main(String[] args) {
         SpringApplication.run(ContentApplication.class, args);
     }
